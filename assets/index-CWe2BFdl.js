@@ -155,6 +155,19 @@ ${E}`}class St extends Error{constructor({message:t,code:r,cause:n,name:i}){var 
                     text-align: center;
                     color: hsl(var(--text-muted));
                 }
+
+                @media (max-width: 640px) {
+                    .notification-dropdown {
+                        position: fixed;
+                        top: 70px; /* Approx header height */
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 92vw;
+                        max-width: 400px;
+                        margin-top: 0;
+                        right: auto;
+                    }
+                }
             `})]})},Jd=({children:e})=>{const{user:t,signOut:r}=Cl(),{theme:n,toggleTheme:i}=X$();return A.jsxs("div",{className:"app-container",children:[A.jsx("header",{className:"app-header",children:A.jsxs("div",{className:"header-content",children:[A.jsxs("div",{className:"logo-section",children:[A.jsx(uu,{className:"logo-icon",size:28}),A.jsx("h1",{children:"Expense Tracker"})]}),A.jsxs("nav",{className:"nav-actions",children:[t&&A.jsxs(A.Fragment,{children:[A.jsx("div",{className:"user-welcome",children:A.jsx("span",{className:"user-name",children:t.user_metadata?.full_name||"User"})}),A.jsx(Vi,{to:"/accounts",className:"icon-button",title:"Accounts",children:A.jsx(uu,{size:20})}),A.jsx(Vi,{to:"/profile",className:"icon-button",title:"Profile",children:A.jsx(o2,{size:20})}),A.jsx(Vi,{to:"/features",className:"icon-button",title:"New Features",children:A.jsx(gU,{size:20})})]}),t&&A.jsx(JU,{}),A.jsx("button",{className:"icon-button",title:"Toggle Theme",onClick:i,children:n==="dark"?A.jsx(qU,{size:20}):A.jsx(r2,{size:20})}),A.jsx("button",{className:"icon-button",title:"Logout",onClick:r,children:A.jsx(PU,{size:20})})]})]})}),A.jsx("main",{className:"main-content",children:e}),A.jsx("style",{children:`
         .app-container {
           min-height: 100vh;
