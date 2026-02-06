@@ -322,8 +322,8 @@ ${E}`}class St extends Error{constructor({message:t,code:r,cause:n,name:i}){var 
         }
 
         .transaction-table th {
-          font-weight: 500;
-          color: hsl(var(--text-muted));
+          font-weight: 600;
+          color: hsl(var(--text-main)); /* Changed from muted to main for clarity */
           font-size: 0.85rem;
           text-transform: uppercase;
           letter-spacing: 0.05em;
@@ -770,6 +770,7 @@ ${E}`}class St extends Error{constructor({message:t,code:r,cause:n,name:i}){var 
             font-weight: 600;
             font-size: 0.95rem;
             white-space: nowrap;
+            color: hsl(var(--text-main)); /* Explicitly set to main text color */
         }
 
         .section-title {
