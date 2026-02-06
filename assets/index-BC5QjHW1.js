@@ -839,7 +839,7 @@ ${E}`}class At extends Error{constructor({message:t,code:r,cause:n,name:i}){var 
           }
         }
       `})]})},XJ=(e,t="transactions.csv")=>{const r=["Date","Type","Amount","Category","Description","Payment Method"],n=e.map(d=>[d.date,d.type,d.amount.toString(),`"${d.category.replace(/"/g,'""')}"`,`"${d.description.replace(/"/g,'""')}"`,`"${d.paymentMethod.replace(/"/g,'""')}"`]),i=[r.join(","),...n.map(d=>d.join(","))].join(`
-`),l=new Blob([i],{type:"text/csv;charset=utf-8;"}),u=URL.createObjectURL(l),c=document.createElement("a");c.setAttribute("href",u),c.setAttribute("download",t),c.style.visibility="hidden",document.body.appendChild(c),c.click(),document.body.removeChild(c)},ZJ=({range:e,transactions:t,goals:r,income:n,expense:i,balance:l})=>{const u={},c={};t.forEach(m=>{m.type==="expense"?u[m.category]=(u[m.category]||0)+m.amount:c[m.category]=(c[m.category]||0)+m.amount});const d=Object.entries(u).sort((m,g)=>g[1]-m[1]),h=`
+`),l=new Blob([i],{type:"text/csv;charset=utf-8;"}),u=URL.createObjectURL(l),c=document.createElement("a");c.setAttribute("href",u),c.setAttribute("download",t),c.style.visibility="hidden",document.body.appendChild(c),c.click(),document.body.removeChild(c)},ZJ=({range:e,transactions:t,goals:r,income:n,expense:i,balance:l})=>{const u={},c={};t.forEach(m=>{m.category!=="Transfer"&&(m.type==="expense"?u[m.category]=(u[m.category]||0)+m.amount:c[m.category]=(c[m.category]||0)+m.amount)});const d=Object.entries(u).sort((m,g)=>g[1]-m[1]),h=`
     <!DOCTYPE html>
     <html>
     <head>
