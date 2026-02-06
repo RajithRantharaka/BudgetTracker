@@ -275,7 +275,7 @@ ${E}`}class St extends Error{constructor({message:t,code:r,cause:n,name:i}){var 
         .summary-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 1.5rem;
+          gap: 1rem;
           margin-bottom: 2rem;
         }
 
@@ -965,7 +965,7 @@ ${E}`}class St extends Error{constructor({message:t,code:r,cause:n,name:i}){var 
         .goals-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
+            gap: 1rem;
         }
         .goal-item {
             margin-bottom: 0.5rem;
