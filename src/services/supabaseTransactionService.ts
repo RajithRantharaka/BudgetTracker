@@ -60,6 +60,48 @@ export const TransactionService = {
         }
     },
 
+    deleteAll: async (userId: string): Promise<void> => {
+        const { error } = await supabase
+            .from('transactions')
+            .delete()
+            .eq('user_id', userId);
+
+        if (error) {
+            console.error('Error deleting all transactions', error);
+            throw error;
+        }
+    },
+
+    update: async (id: string, transaction: Partial<Omit<Transaction, 'id' | 'createdAt'>>): Promise<Transaction | null> => {
+        // Map camelCase to snake_case for DB
+        const dbUpdates: any = {
+            ...transaction,
+        };
+        if (transaction.paymentMethod) {
+            dbUpdates.payment_method = transaction.paymentMethod;
+            delete dbUpdates.paymentMethod;
+        }
+
+        const { data, error } = await supabase
+            .from('transactions')
+            .update(dbUpdates)
+            .eq('id', id)
+            .select()
+            .single();
+
+        if (error) {
+            console.error('Error updating transaction:', error);
+            return null;
+        }
+
+        return {
+            ...data,
+            category: data.category,
+            paymentMethod: data.payment_method,
+            createdAt: data.created_at,
+        };
+    },
+
     // Note: For summary, in a real app we might do this calculation on backend or via DB aggregation 
     // to avoid fetching all rows. For now, fetching all is fine for a personal app.
     getSummaryFromTransactions: (transactions: Transaction[]): DashboardSummary => {

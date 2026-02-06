@@ -1,6 +1,6 @@
 export type TransactionType = 'income' | 'expense';
 
-export type PaymentMethod = 'Cash' | 'Card' | 'Online Banking' | 'Other';
+export type PaymentMethod = string;
 
 export interface Transaction {
     id: string;
