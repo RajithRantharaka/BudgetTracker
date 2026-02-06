@@ -82,6 +82,7 @@ ${E}`}class St extends Error{constructor({message:t,code:r,cause:n,name:i}){var 
                     right: 0;
                     margin-top: 0.5rem;
                     width: 320px;
+                    max-width: 90vw; /* Responsive width */
                     background: hsl(var(--surface));
                     border: 1px solid var(--border);
                     border-radius: var(--radius);
@@ -950,7 +951,7 @@ ${E}`}class St extends Error{constructor({message:t,code:r,cause:n,name:i}){var 
   `,v=window.open("","_blank");v?(v.document.write(h),v.document.close()):alert("Please allow popups to view the report.")},YJ=({transactions:e,goals:t})=>t.length===0?null:A.jsxs("div",{className:"card budget-progress-card",children:[A.jsx("div",{className:"section-header",children:A.jsx("h3",{children:"Budget Goals"})}),A.jsx("div",{className:"goals-grid",children:t.map(r=>{const n=e.filter(c=>c.type==="expense"&&c.category===r.category).reduce((c,d)=>c+d.amount,0),i=Math.min(n/r.amount_limit*100,100),l=n>r.amount_limit,u=n>r.amount_limit*.85;return A.jsxs("div",{className:"goal-item",children:[A.jsxs("div",{className:"goal-header",children:[A.jsx("span",{children:r.category}),A.jsxs("span",{className:l?"text-danger flex-center":"",children:[l&&A.jsx(C0,{size:14,style:{marginRight:"4px"}}),new Intl.NumberFormat("en-US",{style:"currency",currency:"LKR"}).format(n),A.jsxs("span",{className:"text-muted",children:[" / ",new Intl.NumberFormat("en-US",{style:"currency",currency:"LKR"}).format(r.amount_limit)]})]})]}),A.jsx("div",{className:"progress-bar-bg",children:A.jsx("div",{className:`progress-bar-fill ${l?"danger":u?"warning":"success"}`,style:{width:`${i}%`}})})]},r.id)})}),A.jsx("style",{children:`
         .goals-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
         }
         .goal-item {
@@ -1435,6 +1436,7 @@ ${E}`}class St extends Error{constructor({message:t,code:r,cause:n,name:i}){var 
                 .add-budget-row {
                     display: flex;
                     gap: 0.5rem;
+                    flex-wrap: wrap; /* Allow wrapping */
                 }
                 .budget-select, .budget-input {
                     padding: 0.5rem;
@@ -1529,7 +1531,7 @@ ${E}`}class St extends Error{constructor({message:t,code:r,cause:n,name:i}){var 
                 
                 .accounts-grid {
                     display: grid;
-                    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
                     gap: 1rem;
                 }
                 
