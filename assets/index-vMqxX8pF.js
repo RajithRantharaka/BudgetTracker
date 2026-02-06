@@ -349,11 +349,15 @@ ${E}`}class St extends Error{constructor({message:t,code:r,cause:n,name:i}){var 
         }
 
         .category-tag {
-          background-color: hsl(var(--background));
-          padding: 0.25rem 0.5rem;
+          background-color: rgba(124, 58, 237, 0.1); /* Subtle purple tint */
+          color: hsl(var(--primary));
+          border: 1px solid hsl(var(--primary));
+          padding: 0.25rem 0.75rem;
           border-radius: 999px;
-          font-size: 0.8rem;
+          font-size: 0.75rem;
+          font-weight: 600;
           white-space: nowrap;
+          display: inline-block;
         }
 
         .text-right {
